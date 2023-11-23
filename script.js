@@ -88,6 +88,22 @@ var specialCharacters = [
     'Z'
   ];
   
+  function isPasswordLengthInputValid(passwordInputLength) {
+    if (passwordInputLength < 8) {
+        return false;
+    }
+
+    if (passwordInputLength > 128) {
+        return false;
+    }
+
+    if (passwordInputLength >= 8 && passwordInputLength <= 128) {
+        return true;
+    }
+
+    return false;
+}
+
   // Function to prompt user for password options
   function getPasswordOptions() {
 
