@@ -133,7 +133,14 @@ function getPasswordOptions() {
       isNumericIncluded ||
       isSpecialCharsIncluded
     ) {
-      return password;
+      var passwordOptions = {
+        passwordLength: passwordLength,
+        isLowercaseIncluded: isLowercaseIncluded,
+        isUppercaseIncluded: isUppercaseIncluded,
+        isSpecialCharsIncluded: isSpecialCharsIncluded,
+        isNumericIncluded: isNumericIncluded,
+      };
+      return passwordOptions;
     } else {
       alert("Please choose at least 1 character type");
     }
@@ -167,7 +174,6 @@ function generatePassword() {
   }
   if (options.isSpecialCharsIncluded) {
     primaryCharacters = primaryCharacters.concat(specialCharacters);
-    
   }
 
   if (options.isNumericIncluded) {
