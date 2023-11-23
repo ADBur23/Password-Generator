@@ -106,7 +106,25 @@ var specialCharacters = [
 
   // Function to prompt user for password options
   function getPasswordOptions() {
+    console.log('Get password options');
 
+    const passwordLength = prompt('How long the password you want to generate (password should be At least 8 characters but no more than 128)?');
+    const passwordLengthAsNumber = parseInt(passwordLength, 10);
+
+    if (isPasswordLengthInputValid(passwordLengthAsNumber)) {
+        const isLowercaseIncluded = confirm('Do you want to include lowercase characters?');
+        const isUppercaseIncluded = confirm('Do you want to include uppercase characters?');
+        const isNumericIncluded = confirm('Do you want to include numeric characters?');
+        const isSpecialCharsIncluded = confirm('Do you want to include special characters?');
+
+        if (isLowercaseIncluded || isUppercaseIncluded || isNumericIncluded || isSpecialCharsIncluded) {
+            return password;
+        } else {
+            alert('Please choose at least 1 character type');
+        }
+    } else {
+        alert('Please put valid password length, which is a number no less than 8 and no more than 128!');
+    }
   }
   
   // Function for getting a random element from an array
